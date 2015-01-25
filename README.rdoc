@@ -10,7 +10,7 @@ PostgreSQL 9.4
 ==== Bootstrap
 
 1. Create and Migrate the database
-+rake db::create db::migrate+
+<tt>rake db:create db:migrate</tt>
 
 2. Run all test suites (rspec, jasmine, and cucumber)
 +rake+
