@@ -8,14 +8,17 @@ Christopher Lichti's personal website, refreshed for fun in January 2015.
 * Bundler
 * PostgreSQL 9.4
 
-==== Developer Bootstrap
+=== Developer Bootstrap
 
-1. Install all ruby dependencies
+Install all ruby dependencies
+  <tt>bundle install</tt>
+Create and Migrate the database
+  <tt>rake db:create db:migrate</tt>
+Run all test suites (rspec, jasmine, and cucumber)
+  +rake+
 
-<tt>bundle install</tt>
+=== License and Copyright
 
-2. Create and Migrate the database
-<tt>rake db:create db:migrate</tt>
+All *content* is Copyright © 2015 Christopher C. Lichti.  All rights reserved.
 
-3. Run all test suites (rspec, jasmine, and cucumber)
-+rake+
+All *code* (ruby, javascript, gherkin, sass) is under the MIT license.
