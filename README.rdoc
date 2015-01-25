@@ -4,13 +4,18 @@ Christopher Lichti's personal website, refreshed for fun in January 2015.
 
 === Dependencies
 
-Ruby 2.2.0p0
-PostgreSQL 9.4
+* Ruby 2.2.0p0
+* Bundler
+* PostgreSQL 9.4
 
-==== Bootstrap
+==== Developer Bootstrap
 
-1. Create and Migrate the database
+1. Install all ruby dependencies
+
+<tt>bundle install</tt>
+
+2. Create and Migrate the database
 <tt>rake db:create db:migrate</tt>
 
-2. Run all test suites (rspec, jasmine, and cucumber)
+3. Run all test suites (rspec, jasmine, and cucumber)
 +rake+
