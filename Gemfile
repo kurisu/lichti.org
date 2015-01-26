@@ -1,5 +1,3 @@
-# Force Heroku to use Ruby 2.2.0
-ruby "2.2.0"
 source 'https://rubygems.org'
 
 
@@ -37,6 +35,10 @@ gem 'modernizr-rails'
 # Heroku needs the following so Rails will deliver assets when hosted on Heroku:
 gem 'rails_12factor', group: :production
 
+gem 'puma'
+
+gem 'rack-timeout'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -67,4 +69,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
+
+# Force Heroku to use Ruby 2.2.0
+ruby "2.2.0"
 
