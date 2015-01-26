@@ -1,24 +1,71 @@
 == lichti.org
 
-Christopher Lichti's personal website, refreshed for fun in January 2015.
+Christopher Lichti's personal website, rebuilt for fun and learning in January 2015.
 
 === Dependencies
 
 * Ruby 2.2.0p0
-* Bundler
 * PostgreSQL 9.4
+* Bundler
+* See Gemfile for the rest
 
 === Developer Bootstrap
 
 Install all ruby dependencies
-  <tt>bundle install</tt>
+  bundle install
 Create and Migrate the database
-  <tt>rake db:create db:migrate</tt>
+  rake db:create db:migrate
 Run all test suites (rspec, jasmine, and cucumber)
-  +rake+
+  rake
+
+=== Testing
+
+To run the full test suite locally:
+  rake
+
+Here's what's included:
+
+* rspec[https://github.com/rspec/rspec] for ruby and mvc testing.
+* jasmine[https://github.com/jasmine/jasmine] for javascript testing.
+* cucumber[https://github.com/cucumber/cucumber] for integration testing.
+
+=== Continuous Integration (CI)
+
+I set up {Travis CI}[https://travis-ci.org] here:
+<br>
+https://travis-ci.org/kurisu/lichti.org
+
+=== Configuration
+
+Even though this is a small, personal portal unlikely to get much attention, I decided to follow some scalability best
+practices because it's a good habit and takes little effort.
+
+==== App Server
+
+I'm using puma[https://github.com/puma/puma], configured for both multiple works and threads, to make thread safety
+a constant thought as I build the app.
+
+To test the production app server/config locally, make sure you have the foreman gem installed and run it.
+
+  gem install foreman
+  foreman start
+
+==== Staging
+
+For pre-production testing, I set up a Staging environment here:
+<br>
+https://lichti-org-staging.herokuapp.com
+
+==== Production
+
+Production is here:
+<br>
+http://www.lichti.org
 
 === License and Copyright
 
 All *content* is Copyright © 2015 Christopher C. Lichti.  All rights reserved.
 
-All *code* (ruby, javascript, gherkin, sass) is under the MIT license.
+All of *my code* (ruby, javascript, gherkin, sass) is under the MIT license.
+
+All libraries, tools, and templates are covered by their respective licenses.
