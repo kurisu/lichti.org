@@ -52,7 +52,7 @@
                     %li
                       %a{:href => "#portfolio"} Portfolio
                     %li
-                      %a{:href => "#clients"} Clients
+                      %a{:href => "#clients"} Recommendations
                     %li
                       %a{:href => "#contact"} Contact
 / navbar end
@@ -70,7 +70,7 @@
           %h1.text-center
             Christopher
             %span Lichti
-          %p.lead.text-center Technical founder, executive leader, mobile/web developer, data scientist, musician
+          %p.lead.text-center Technical Founder/Executive Leader
 / banner end
 / section start
 / ================
@@ -81,7 +81,7 @@
         %h1#about.title.text-center
           About
           %span Christopher
-        %p.lead.text-center Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta officia, aspernatur.
+        %p.lead.text-center Technical founder, executive leader, mobile/web developer, data scientist, speaker, musician, athlete.
         .space
         .row
           .col-md-6
@@ -144,60 +144,48 @@
 / ================
 .section.translucent-bg.bg-image-1.blue
   .container.object-non-visible{"data-animation-effect" => "fadeIn"}
-    %h1#services.text-center.title Skills
+    %h1#services.text-center.title Facets
     .space
     .row
       .col-sm-6
         .media
           .media-body.text-right
             %h4.media-heading Technology Leadership
-            %p Creative innovation and drive with a deep, technical, research background in a wide variety of fields, including video library systems, biomedical informatics, criminal records, and natural language processing.
+            %p Creative innovation and drive in both technology and leadership style. Driven by empirical results.
           .media-right
-            %i.fa.fa-cog
+            %i.fa.fa-codepen
         .media
           .media-body.text-right
-            %h4.media-heading Agile at Scale
-            %p Deep experience with Agile/XP/SCRUM across multiple, geographically diverse, integrated teams.
-          .media-right
-            %i.fa.fa-check
-        .media
-          .media-body.text-right
-            %h4.media-heading Service 3
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
-          .media-right
-            %i.fa.fa-desktop
-        .media
-          .media-body.text-right
-            %h4.media-heading Service 4
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
+            %h4.media-heading Agility at Scale
+            %p Deep, practical experience with Agile/XP/SCRUM across multiple, geographically diverse, integrated teams.
           .media-right
             %i.fa.fa-users
+        .media
+          .media-body.text-right
+            %h4.media-heading Amateur Athlete
+            %p Occasional triathlons, centuries, martial arts, trail running
+          .media-right
+            %i.fa.fa-bicycle
       .space.visible-xs
       .col-sm-6
         .media
           .media-left
-            %i.fa.fa-leaf
+            %i.fa.fa-child
           .media-body
-            %h4.media-heading Service 5
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
+            %h4.media-heading Speaker
+            %p Experienced public speaker on topics ranging from agile processes, software architecture, development best practices, ethics, startups, and education.
         .media
           .media-left
             %i.fa.fa-area-chart
           .media-body
-            %h4.media-heading Service 6
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
+            %h4.media-heading Data Scientist
+            %p 18 years of applied machine learning off and on, including Natural Language Processing (NLP), vision systems, prediction, classification.
         .media
           .media-left
-            %i.fa.fa-child
+            %i.fa.fa-music
           .media-body
-            %h4.media-heading Service 7
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
-        .media
-          .media-left
-            %i.fa.fa-codepen
-          .media-body
-            %h4.media-heading Service 8
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.
+            %h4.media-heading Amateur Musician
+            %p Singer and instrumentalist: taiko, shinobue, guitar, cello, hammered dulcimer, and a variety of other instruments over the years.
 / section end
 / section start
 / ================
@@ -205,7 +193,7 @@
   .container
     .row
       .col-md-8.col-md-offset-2
-        %h1.text-center Let's Work Together!
+        %h1.text-center Products are created by People
 / section end
 / section start
 / ================
@@ -606,7 +594,7 @@
           .media-left
             %img{:alt => "", :src => "#{ asset_path('home/testimonial-3.png')}"}/
           .media-body
-            %h3.media-heading Collegial Mentorship
+            %h3.media-heading Collegial Mentor
             %blockquote
               %p I have reported to Chris at TrueCar for the past year and have been continually impressed that he manages to display strong team leadership qualities while still maintaining his chops as a technologist. He has repeatedly managed to organize and/or rally existing teams to build solid, scalable products on extremely tight deadlines while simultaneously introducing best practices for everything from behavior driven testing to API versioning. To top it all off, Chris is extremely easy to get along with and his diverse personal interests result in a unique perspective on business and life.
               %footer
@@ -653,23 +641,23 @@
       .list-horizontal
         .row
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-1.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-github.fa-4x
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-2.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-apple.fa-4x
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-3.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-android.fa-4x
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-4.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-reddit.fa-4x
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-5.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-linux.fa-4x
           .col-xs-2
-            .list-horizontal-item
-              %img{:alt => "client", :src => "#{ asset_path('home/client-6.png')}"}/
+            .list-horizontal-item.testimonial
+              %i.fa.fa-html5.fa-4x
 / section end
 / section end
 / section start
@@ -687,50 +675,47 @@
   / ================
   .footer.section
     .container
-      %h1#contact.title.text-center Contact Us
+      %h1#contact.title.text-center Contact Christopher Lichti
       .space
       .row
         .col-sm-6
           .footer-content
-            %p.large Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel nam magnam natus tempora cumque, aliquam deleniti voluptatibus voluptas. Repellat vel, et itaque commodi iste ab, laudantium voluptas deserunt nobis.
+            %p.large The best way to reach Christopher is by email or via this form.
             %ul.list-icons
               %li
                 %i.fa.fa-map-marker.pr-10
-                One infinity loop, 54100
+                San Francisco Bay Area
               %li
                 %i.fa.fa-phone.pr-10
-                +00 1234567890
-              %li
-                %i.fa.fa-fax.pr-10
-                +00 1234567891
+                +001 415.742.1121
               %li
                 %i.fa.fa-envelope-o.pr-10
-                your@email.com
+                chris.lichti@email.com
             %ul.social-links
               %li.facebook
-                %a{:href => "https://www.facebook.com/pages/HtmlCoder/714570988650168", :target => "_blank"}
+                %a{:href => "https://www.facebook.com/chris.lichti", :target => "_blank"}
                   %i.fa.fa-facebook
               %li.twitter
-                %a{:href => "https://twitter.com/HtmlcoderMe", :target => "_blank"}
+                %a{:href => "https://twitter.com/chrislichti", :target => "_blank"}
                   %i.fa.fa-twitter
               %li.googleplus
-                %a{:href => "http://plus.google.com", :target => "_blank"}
+                %a{:href => "google.com/+ChristopherLichti", :target => "_blank"}
                   %i.fa.fa-google-plus
               %li.skype
-                %a{:href => "http://www.skype.com", :target => "_blank"}
+                %a{:href => "skype:chris.lichti?call", :target => "_blank"}
                   %i.fa.fa-skype
               %li.linkedin
-                %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                %a{:href => "www.linkedin.com/in/chrislichti/", :target => "_blank"}
                   %i.fa.fa-linkedin
               %li.youtube
-                %a{:href => "http://www.youtube.com", :target => "_blank"}
+                %a{:href => "youtube.com/c/ChristopherLichti", :target => "_blank"}
                   %i.fa.fa-youtube
               %li.flickr
-                %a{:href => "http://www.flickr.com", :target => "_blank"}
+                %a{:href => "http://gaijin.smugmug.com/", :target => "_blank"}
                   %i.fa.fa-flickr
-              %li.pinterest
-                %a{:href => "http://www.pinterest.com", :target => "_blank"}
-                  %i.fa.fa-pinterest
+              -#%li.pinterest
+              -#  %a{:href => "http://www.pinterest.com", :target => "_blank"}
+              -#    %i.fa.fa-pinterest
         .col-sm-6
           .footer-content
             %form#footer-form{:role => "form"}
@@ -755,7 +740,7 @@
       .row
         .col-md-12
           %p.text-center
-            Copyright © 2015 Christopher Lichti by
+            Copyright © 2015 Christopher Lichti. All rights reserved.
             = succeed "." do
               %a{:href => "http://lichti.org", :target => "_blank"} Lichti.org
 / .subfooter end

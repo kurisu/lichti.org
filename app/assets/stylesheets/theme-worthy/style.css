@@ -94,6 +94,9 @@ img {
 	display: block;
 	margin: 0 auto;
 }
+.list-horizontal-item.testimonial {
+    text-align: center;
+}
 .list-icons {
 	padding: 0;
 	margin: 20px 0;
