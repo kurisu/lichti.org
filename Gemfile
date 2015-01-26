@@ -1,3 +1,4 @@
+# Force Heroku to use Ruby 2.2.0
 ruby "2.2.0"
 source 'https://rubygems.org'
 
