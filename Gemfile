@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'modernizr-rails'
 
+# Heroku needs the following so Rails will deliver assets when hosted on Heroku:
+gem 'rails_serve_static_assets'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
