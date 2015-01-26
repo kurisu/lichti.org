@@ -21,7 +21,7 @@ src_files:
 # EXAMPLE:
 #
 # stylesheets:
-#   - css/style.css
+#   - css/style.css.sass
 #   - stylesheets/*.css
 #
 stylesheets:
