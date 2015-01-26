@@ -1,7 +1,18 @@
 language: ruby
 cache: bundler
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
 rvm:
-  - "2.2.0"
+- 2.2.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: R4nAWT2+D76ctwDRL23Z82G5JI8tqtWniDJqnTMqFaJr48NxVa/dkzKFPKKBSFWVq1bLKa0hwr5fRbyYb27b6/NcnkmlS9lPF6Fn//znVlyI3S4moVerPpQD+UMUAoKwZdXQ7bdM1b7CscSfmZNOthCuKui7B4ZmohO+ISkxoIw=
+  app:
+    master: lichti-org-staging
+    production: lichti-org
+  on:
+    repo: kurisu/lichti.org
+  run:
+    - "rake db:migrate"
