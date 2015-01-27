@@ -8,6 +8,18 @@
  */
 
 (function($){
+
+    $.fn.oneTimeLinkInit = function() {
+        //One Time Link
+        //-----------------------------------------------
+        if ($(".one-time-link").length>0) {
+            $(".one-time-link a, a.one-time-link").click(function() {
+                $(this).hide();
+                return true;
+            });
+        }
+    }
+
 	$(document).ready(function(){
 	
 		$(".banner-image").backstretch("<%= asset_path("home/banner.jpg") %>");
@@ -43,6 +55,10 @@
 				offset: 152
 			});
 		}
+
+        //One Time Link
+        //-----------------------------------------------
+        $.fn.oneTimeLinkInit();
 
 		//Smooth Scroll
 		//-----------------------------------------------

@@ -62,10 +62,12 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'jasmine'
+  gem 'jasmine-jquery-rails'
 end
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem 'rspec-html-matchers'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
