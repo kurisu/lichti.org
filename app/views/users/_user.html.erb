@@ -2,6 +2,25 @@
   <%= link_to user.email, user %>
 </td>
 <td>
+  <% orig_approved = user.approved %>
+  <% if !user.approved? %>
+      Not Approved
+      <% user.approved = true %>
+      <%= form_for(user) do |f| %>
+          <%= f.check_box :approved %>
+          <%= f.submit 'Approve', :class => 'button-xs' %>
+      <% end %>
+  <% else %>
+      Approved
+      <% user.approved = false %>
+      <%= form_for(user) do |f| %>
+          <%= f.check_box :approved %>
+          <%= f.submit 'Revoke Approval', :class => 'button-xs' %>
+      <% end %>
+  <% end %>
+  <% user.approved = orig_approved %>
+</td>
+<td>
   <%= form_for(user) do |f| %>
       <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
       <%= f.submit 'Change Role', :class => 'button-xs' %>

@@ -4,6 +4,7 @@ class CreateAdminService
       user.skip_confirmation!
       user.password = Rails.application.secrets.admin_password
       user.password_confirmation = Rails.application.secrets.admin_password
+      user.approved = true
       user.admin!
     end
   end

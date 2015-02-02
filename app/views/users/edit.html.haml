@@ -1,0 +1,6 @@
+= form_for @user, :url => edit_user_path(@user), :method => 'put' do |f|
+  = f.label :email
+  = f.email_field :email, :autofocus => true, class: 'form-control'
+  = f.label :approved
+  = f.check_box :approved, class: 'form-control'
+  = f.submit :value => 'submit'

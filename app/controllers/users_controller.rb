@@ -3,11 +3,22 @@ class UsersController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @users = User.all
+    if params[:approved] == "false"
+      @users = User.find_by_approved(false).order(:email)
+      @listing = :not_approved
+    else
+      @users = User.all.order(:email)
+      @listing = :all
+    end
     authorize User
   end
 
   def show
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def edit
     @user = User.find(params[:id])
     authorize @user
   end
@@ -32,7 +43,7 @@ class UsersController < ApplicationController
   private
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:role, :approved, :email)
   end
 
 end
