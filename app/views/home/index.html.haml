@@ -1,64 +1,6 @@
-/ scrollToTop
-/ ================
-.scrollToTop
-  %i.icon-up-open-big
-/ header start
-/ ================
-%header.header.fixed.clearfix.navbar.navbar-fixed-top
-  .container
-    .row
-      .col-md-4
-        / header-left start
-        / ================
-        .header-left.clearfix
-          / logo
-          .logo.smooth-scroll
-            %a{:href => "#banner"}
-              %img#logo{:alt => "Lichti.org", :src => "#{asset_path 'home/logo.png'}"}/
-          / name-and-slogan
-          .site-name-and-slogan.smooth-scroll
-            .site-name
-              %a{:href => "#banner"} Christopher Lichti
-            .site-slogan
-              Technical Founder/Executive Leader
-      / header-left end
-      .col-md-8
-        / header-right start
-        / ================
-        .header-right.clearfix
-          / main-navigation start
-          / ================
-          .main-navigation.animated
-            / navbar start
-            / ================
-            %nav.navbar.navbar-default{:role => "navigation"}
-              .container-fluid
-                / Toggle get grouped for better mobile display
-                .navbar-header
-                  %button.navbar-toggle{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-                    %span.sr-only Toggle navigation
-                    %span.icon-bar
-                    %span.icon-bar
-                    %span.icon-bar
-                / Collect the nav links, forms, and other content for toggling
-                #navbar-collapse-1.collapse.navbar-collapse.scrollspy.smooth-scroll
-                  %ul.nav.navbar-nav.navbar-right
-                    %li.active
-                      %a{:href => "#banner"} Home
-                    %li
-                      %a{:href => "#about"} About
-                    %li
-                      %a{:href => "#services"} Facets
-                    -#%li
-                    -#  %a{:href => "#portfolio"} Portfolio
-                    %li
-                      %a{:href => "#clients"} Recommendations
-                    %li
-                      %a{:href => "#contact"} Contact
-/ navbar end
-/ main-navigation end
-/ header-right end
-/ header end
+- content_for :body_class, 'welcome'
+- content_for :title, 'Christopher Lichti'
+
 / banner start
 / ================
 #banner.banner
