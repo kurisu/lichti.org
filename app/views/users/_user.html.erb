@@ -2,23 +2,25 @@
   <%= link_to user.email, user %>
 </td>
 <td>
-  <% orig_approved = user.approved %>
-  <% if !user.approved? %>
-      Not Approved
-      <% user.approved = true %>
-      <%= form_for(user) do |f| %>
-          <%= f.check_box :approved %>
-          <%= f.submit 'Approve', :class => 'button-xs' %>
+  <% unless user == current_user %>
+      <% orig_approved = user.approved %>
+      <% if !user.approved? %>
+          <% user.approved = true %>
+          <%= form_for(user) do |f| %>
+              Not Approved
+              <%= f.hidden_field :approved %>
+              <%= f.submit 'Approve', :class => 'button-xs' %>
+          <% end %>
+      <% else %>
+          <% user.approved = false %>
+          <%= form_for(user) do |f| %>
+              Approved
+              <%= f.hidden_field :approved %>
+              <%= f.submit 'Revoke', :class => 'button-xs' %>
+          <% end %>
       <% end %>
-  <% else %>
-      Approved
-      <% user.approved = false %>
-      <%= form_for(user) do |f| %>
-          <%= f.check_box :approved %>
-          <%= f.submit 'Revoke Approval', :class => 'button-xs' %>
-      <% end %>
+      <% user.approved = orig_approved %>
   <% end %>
-  <% user.approved = orig_approved %>
 </td>
 <td>
   <%= form_for(user) do |f| %>
