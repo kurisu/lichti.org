@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'font-awesome-rails'
 
 gem 'haml-rails'
+gem 'rails_layout'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
@@ -41,6 +42,7 @@ gem 'rack-timeout'
 
 gem 'omniauth'
 gem 'devise'
+gem 'pundit'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
