@@ -1,0 +1,16 @@
+/ .subfooter start
+/ ================
+.subfooter
+  .container
+    .row
+      .col-md-12
+        %p.text-center
+          = link_to("Log In", '/users/sign_in', :class => 'button-xs') unless user_signed_in?
+          = link_to("Log Out", '/users/sign_out', :method => :delete, :class => 'button-xs') if user_signed_in?
+          |
+          = link_to("Account", '/users/edit', :class => 'button-xs') if user_signed_in?
+          = "|" if current_user.admin?
+          = link_to("Manage Users", '/users', :class => 'button-xs') if current_user.admin?
+          Copyright © 2015 Christopher Lichti. All rights reserved.
+/ .subfooter end
+/ footer end
