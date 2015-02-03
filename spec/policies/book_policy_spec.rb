@@ -11,7 +11,6 @@ describe BookPolicy do
 
   permissions :edit?, :new?, :create?, :update?, :destroy? do
     it 'should grant access only to admin users' do
-      print subject.inspect
       expect(subject).not_to permit(nil, Book.new)
       expect(subject).not_to permit(User.new(:role => :user), Book.new)
       expect(subject).to permit(User.new(:role => :admin), Book.new)
