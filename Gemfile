@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'font-awesome-rails'
 
 gem 'haml-rails'
+gem 'rails_layout'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
@@ -38,6 +39,10 @@ gem 'rails_12factor', group: :production
 gem 'puma'
 
 gem 'rack-timeout'
+
+gem 'omniauth'
+gem 'devise'
+gem 'pundit'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -63,6 +68,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :books
+
+  devise_for :users
+  resources :users
+
   get 'taiko/index'
 
   root 'home#index'
