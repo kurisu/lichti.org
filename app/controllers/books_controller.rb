@@ -1,30 +1,37 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :destroy, :update]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized
 
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
+    authorize Book
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
+    authorize @book
   end
 
   # GET /books/new
   def new
     @book = Book.new
+    authorize @book
   end
 
   # GET /books/1/edit
   def edit
+    authorize @book
   end
 
   # POST /books
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    authorize @book
 
     respond_to do |format|
       if @book.save
@@ -40,6 +47,8 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    authorize @book
+
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -54,6 +63,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
+    authorize @book
     @book.destroy
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
