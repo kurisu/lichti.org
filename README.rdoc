@@ -1,6 +1,6 @@
 == lichti.org
 
-[![Build Status](https://travis-ci.org/kurisu/lichti.org.svg?branch=master)](https://travis-ci.org/kurisu/lichti.org)
+{<img src="https://travis-ci.org/kurisu/lichti.org.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/kurisu/lichti.org]
 
 Christopher Lichti's personal website, rebuilt for fun and learning in January 2015.
 
