@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :create, :destroy, :update]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :cover]
+  after_action :verify_authorized, except: [:cover]
 
   # GET /books
   # GET /books.json
@@ -14,6 +14,11 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     authorize @book
+  end
+
+  def cover
+    @book = Book.find(params[:id])
+    send_data Base64.decode64(@book.cover), :type => 'image/png',:disposition => 'inline'
   end
 
   # GET /books/new
@@ -50,13 +55,22 @@ class BooksController < ApplicationController
     authorize @book
 
     respond_to do |format|
-      if @book.update(book_params)
+      if @book.update(book_params) && save_cover
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def save_cover
+    if book_params[:cover]
+      cover = book_params[:cover].read
+      @book.update_attributes(:cover => Base64.encode64(cover))
+    else
+      true
     end
   end
 

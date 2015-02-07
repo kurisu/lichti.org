@@ -17,7 +17,7 @@
   = @book.description
 %p
   %b Cover:
-  = @book.cover
+  = image_tag url_for(:controller => "books", :action => "cover", :id => @book.id)
 %p
   %b Purchase url:
   = @book.purchase_url

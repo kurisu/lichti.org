@@ -1,7 +1,7 @@
 describe BookPolicy do
   subject { described_class }
 
-  permissions :index?, :show? do
+  permissions :index?, :show?, :cover? do
     it "should grant access to everyone" do
       expect(subject).to permit(nil, Book)
       expect(subject).to permit(User.new(:role => :user), Book)

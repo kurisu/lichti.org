@@ -22,10 +22,15 @@
     = f.label :description
     = f.text_field :description
   .field
-    = f.label :cover
-    = f.text_field :cover
-  .field
     = f.label :purchase_url
     = f.text_field :purchase_url
+  .field
+    = f.label :cover
+    - if @book.cover && !@book.cover.empty?
+      %br
+      Current cover image:
+      = image_tag url_for(:controller => "books", :action => "cover", :id => @book.id)
+    Choose a new cover.  Note: Cover image must be in the PNG format.
+    = f.file_field :cover
   .actions
     = f.submit 'Save'

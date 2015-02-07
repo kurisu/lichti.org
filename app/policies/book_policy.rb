@@ -10,6 +10,10 @@ class BookPolicy
     true
   end
 
+  def cover?
+    true
+  end
+
   def edit?
     @current_user && @current_user.admin?
   end

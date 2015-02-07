@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :books
 
+  get 'books/:id/cover' => 'books#cover'
+
   devise_for :users
   resources :users
 

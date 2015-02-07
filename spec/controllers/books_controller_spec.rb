@@ -11,11 +11,24 @@ RSpec.describe BooksController, :type => :controller do
   # Book. As you add validations to Book, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+        title: 'Amazing Book X',
+        subtitle: '',
+        author: 'Amazing Author Y',
+        isbn: '',
+        description: '',
+        purchase_url: ''
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+        title: '',
+        subtitle: '',
+        isbn: '',
+        description: '',
+        purchase_url: ''
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -25,7 +38,7 @@ RSpec.describe BooksController, :type => :controller do
 
   describe "GET index" do
     it "assigns all books as @books" do
-      book = Book.create! valid_attributes
+      book = create(:book)
       get :index, {}, valid_session
       expect(assigns(:books)).to eq([book])
     end
@@ -33,9 +46,17 @@ RSpec.describe BooksController, :type => :controller do
 
   describe "GET show" do
     it "assigns the requested book as @book" do
-      book = Book.create! valid_attributes
+      book = create(:book)
       get :show, {:id => book.to_param}, valid_session
       expect(assigns(:book)).to eq(book)
+    end
+  end
+
+  describe "GET cover" do
+    it "sends cover image data for the requested book" do
+      book = create(:book_with_cover)
+      get :cover, {:id => book.to_param}, valid_session
+      assert_response :success
     end
   end
 
@@ -48,7 +69,7 @@ RSpec.describe BooksController, :type => :controller do
 
   describe "GET edit" do
     it "assigns the requested book as @book" do
-      book = Book.create! valid_attributes
+      book = create(:book)
       get :edit, {:id => book.to_param}, valid_session
       expect(assigns(:book)).to eq(book)
     end
@@ -94,20 +115,20 @@ RSpec.describe BooksController, :type => :controller do
       }
 
       it "updates the requested book" do
-        book = Book.create! valid_attributes
+        book = create(:book)
         put :update, {:id => book.to_param, :book => new_attributes}, valid_session
         book.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested book as @book" do
-        book = Book.create! valid_attributes
+        book = create(:book)
         put :update, {:id => book.to_param, :book => valid_attributes}, valid_session
         expect(assigns(:book)).to eq(book)
       end
 
       it "redirects to the book" do
-        book = Book.create! valid_attributes
+        book = create(:book)
         put :update, {:id => book.to_param, :book => valid_attributes}, valid_session
         expect(response).to redirect_to(book)
       end
@@ -115,13 +136,13 @@ RSpec.describe BooksController, :type => :controller do
 
     describe "with invalid params" do
       it "assigns the book as @book" do
-        book = Book.create! valid_attributes
+        book = create(:book)
         put :update, {:id => book.to_param, :book => invalid_attributes}, valid_session
         expect(assigns(:book)).to eq(book)
       end
 
       it "re-renders the 'edit' template" do
-        book = Book.create! valid_attributes
+        book = create(:book)
         put :update, {:id => book.to_param, :book => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -130,14 +151,14 @@ RSpec.describe BooksController, :type => :controller do
 
   describe "DELETE destroy" do
     it "destroys the requested book" do
-      book = Book.create! valid_attributes
+      book = create(:book)
       expect {
         delete :destroy, {:id => book.to_param}, valid_session
       }.to change(Book, :count).by(-1)
     end
 
     it "redirects to the books list" do
-      book = Book.create! valid_attributes
+      book = create(:book)
       delete :destroy, {:id => book.to_param}, valid_session
       expect(response).to redirect_to(books_url)
     end
