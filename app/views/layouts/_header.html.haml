@@ -13,12 +13,12 @@
         .header-left.clearfix
           / logo
           .logo.smooth-scroll
-            %a{:href => "#banner"}
+            %a{:href => "/#banner"}
               %img#logo{:alt => "Lichti.org", :src => "#{asset_path 'home/logo.png'}"}/
           / name-and-slogan
           .site-name-and-slogan.smooth-scroll
             .site-name
-              %a{:href => "#banner"} Christopher Lichti
+              %a{:href => "/#banner"} Christopher Lichti
             .site-slogan
               Technical Founder/Executive Leader
       / header-left end
@@ -44,17 +44,17 @@
                 #navbar-collapse-1.collapse.navbar-collapse.scrollspy.smooth-scroll
                   %ul.nav.navbar-nav.navbar-right
                     %li.active
-                      %a{:href => "#banner"} Home
+                      %a{:href => "/#banner"} Home
                     %li
-                      %a{:href => "#about"} About
+                      %a{:href => "/#about"} About
                     %li
-                      %a{:href => "#services"} Facets
-                    -#%li
-                    -#  %a{:href => "#portfolio"} Portfolio
+                      %a{:href => "/#facets"} Facets
                     %li
-                      %a{:href => "#clients"} Recommendations
+                      %a{:href => "/books"} Books
                     %li
-                      %a{:href => "#contact"} Contact
+                      %a{:href => "/#recommendations"} Recommendations
+                    %li
+                      %a{:href => "/#contact"} Contact
                       / navbar end
                       / main-navigation end
                       / header-right end

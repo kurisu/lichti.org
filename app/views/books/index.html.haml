@@ -1,41 +1,40 @@
-.section
-  .container
-    %h1#books.text-center.title Books
-    .separator
-    %p.lead.text-center
-      These are books I've read and found interesting.
-      %br/
-      You may as well.
+.container
+  %h1#books.text-center.title Christopher Lichti's Reading List
+  .separator
+  %p.lead.text-center
+    These are books I've read and found interesting.
     %br/
-    .row
-      .col-md-12
-        / book items start
-        - @books.each do |book|
-          .col-sm-6.col-md-3.book
-            .panel.panel-default
-              .panel-body
-                .image-box.text-center.thumbnail
-                  - if book.cover
-                    %a{"data-target" => "#book-#{book.id}", "data-toggle" => "modal"}
-                      = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
-                  - else
-                    No Cover
-                %a.btn.btn-default.btn-block{"data-target" => "#book-#{book.id}", "data-toggle" => "modal", title: book.title}= truncate(book.title, length: 17 )
-                / Modal
-                .modal.fade{:id => "book-#{book.id}", "aria-hidden" => "true", "aria-labelledby" => "book-#{book.id}-label", :role => "dialog", :tabindex => "-1"}
-                  .modal-dialog.modal-lg
-                    .modal-content
-                      .modal-header
-                        %button.close{"data-dismiss" => "modal", :type => "button"}
-                          %span{"aria-hidden" => "true"} ×
-                          %span.sr-only Close
-                        %h4.modal-title{:id => "project-#{book.id}-label"}= book.title
-                      .modal-body
-                        - @book = book
-                        = render 'panel'
-                      .modal-footer
-                        %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-              / Modal end
+    Perhaps you will, too.
+  %br/
+  .row
+    .col-md-12
+      / book items start
+      - @books.each do |book|
+        .col-sm-6.col-md-3.book
+          .panel.panel-default
+            .panel-body
+              .image-box.text-center.thumbnail
+                - if book.cover
+                  %a{"data-target" => "#book-#{book.id}", "data-toggle" => "modal"}
+                    = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
+                - else
+                  No Cover
+              %a.btn.btn-default.btn-block{"data-target" => "#book-#{book.id}", "data-toggle" => "modal", title: book.title}= truncate(book.title, length: 17 )
+              / Modal
+              .modal.fade{:id => "book-#{book.id}", "aria-hidden" => "true", "aria-labelledby" => "book-#{book.id}-label", :role => "dialog", :tabindex => "-1"}
+                .modal-dialog.modal-lg
+                  .modal-content
+                    .modal-header
+                      %button.close{"data-dismiss" => "modal", :type => "button"}
+                        %span{"aria-hidden" => "true"} ×
+                        %span.sr-only Close
+                      %h4.modal-title{:id => "project-#{book.id}-label"}= book.title
+                    .modal-body
+                      - @book = book
+                      = render 'panel'
+                    .modal-footer
+                      %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+            / Modal end
 
 - if @current_user && @current_user.admin?
   .space

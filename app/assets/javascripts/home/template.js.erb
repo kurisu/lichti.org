@@ -23,8 +23,17 @@
 	$(document).ready(function(){
 	
 		$(".banner-image").backstretch("<%= asset_path("home/banner.jpg") %>");
-		
-		// Fixed header
+
+        // Banner when page loaded with anchor
+        //-----------------------------------------------
+        $(window).scroll(function() {
+            if (($(".banner-image").length > 0)) {
+                $(".banner-image").backstretch("<%= asset_path("home/banner.jpg") %>");
+            };
+        });
+
+
+        // Fixed header
 		//-----------------------------------------------
 		$(window).scroll(function() {
 			if (($(".header.fixed").length > 0)) { 
