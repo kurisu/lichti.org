@@ -1,0 +1,36 @@
+.panel.panel-default
+  .panel-body
+    .col-sm-8
+      %h1.title= @book.title
+      - if @book.subtitle
+        %h4= @book.subtitle
+      %h4= "by #{@book.author}"
+    .col-sm-4
+      - if @book.cover
+        .thumbnail
+          = image_tag url_for(:controller => "books", :action => "cover", :id => @book.id)
+      - else
+        .thumbnail
+          No Cover
+
+  %table.table
+    %tr
+      %th
+        Author:
+      %td
+        = @book.author
+    %tr
+      %th
+        ISBN:
+      %td
+        = @book.isbn
+    %tr
+      %th
+        Purchase URL:
+      %td
+        = @book.purchase_url
+    %tr
+      %th
+        Description:
+      %td
+        = @book.description

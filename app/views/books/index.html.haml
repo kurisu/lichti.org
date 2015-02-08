@@ -1,40 +1,80 @@
-.space
+.section
   .container
+    %h1#books.text-center.title Books
+    .separator
+    %p.lead.text-center
+      These are books I've read and found interesting.
+      %br/
+      You may as well.
+    %br/
     .row
-      .col-sm-12
-        %h1 Books
-
-        %table.table
-          %thead
-            %tr
-              %th Title
-              %th Subtitle
-              %th Author
-              %th Isbn
-              %th Description
-              %th Cover
-              %th Purchase url
-              %th
-
-          %tbody
-            - @books.each do |book|
-              %tr
-                %td= link_to book.title, book
-                %td= book.subtitle
-                %td= book.author
-                %td= book.isbn
-                %td= book.description
-                %td
+      .col-md-12
+        / book items start
+        - @books.each do |book|
+          .col-sm-6.col-md-3.book
+            .panel.panel-default
+              .panel-body
+                .image-box.text-center.thumbnail
                   - if book.cover
-                    = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
+                    %a{"data-target" => "#book-#{book.id}", "data-toggle" => "modal"}
+                      = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
                   - else
                     No Cover
-                %td= book.purchase_url
-                %td
-                  .btn-group
-                    = link_to 'Edit', edit_book_path(book), class: %w'btn btn-small'
-                    = link_to 'Destroy', book, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w'btn btn-small'
+                %a.btn.btn-default.btn-block{"data-target" => "#book-#{book.id}", "data-toggle" => "modal", title: book.title}= truncate(book.title, length: 17 )
+                / Modal
+                .modal.fade{:id => "book-#{book.id}", "aria-hidden" => "true", "aria-labelledby" => "book-#{book.id}-label", :role => "dialog", :tabindex => "-1"}
+                  .modal-dialog.modal-lg
+                    .modal-content
+                      .modal-header
+                        %button.close{"data-dismiss" => "modal", :type => "button"}
+                          %span{"aria-hidden" => "true"} ×
+                          %span.sr-only Close
+                        %h4.modal-title{:id => "project-#{book.id}-label"}= book.title
+                      .modal-body
+                        - @book = book
+                        = render 'panel'
+                      .modal-footer
+                        %button.btn.btn-sm.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+              / Modal end
 
-        %br
+- if @current_user && @current_user.admin?
+  .space
+    .container
+      .row
+        .col-sm-12
+          %h1.title Books Admin
 
-        = link_to 'New Book', new_book_path, class: 'btn'
+          %table.table
+            %thead
+              %tr
+                %th Title
+                %th Subtitle
+                %th Author
+                %th Isbn
+                %th Description
+                %th Cover
+                %th Purchase url
+                %th
+
+            %tbody
+              - @books.each do |book|
+                %tr
+                  %td= link_to book.title, book
+                  %td= book.subtitle
+                  %td= book.author
+                  %td= book.isbn
+                  %td= book.description
+                  %td
+                    - if book.cover
+                      = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
+                    - else
+                      No Cover
+                  %td= book.purchase_url
+                  %td
+                    .btn-group
+                      = link_to 'Edit', edit_book_path(book), class: %w'btn btn-small'
+                      = link_to 'Destroy', book, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w'btn btn-small'
+
+          %br
+
+          = link_to 'New Book', new_book_path, class: 'btn'
