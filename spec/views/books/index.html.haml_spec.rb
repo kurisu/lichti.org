@@ -9,7 +9,7 @@ RSpec.describe "books/index", :type => :view do
         :author => "Author",
         :isbn => "Isbn",
         :description => "Description",
-        :cover => "",
+        :cover => nil,
         :purchase_url => "Purchase Url"
       ),
       Book.create!(
@@ -18,7 +18,7 @@ RSpec.describe "books/index", :type => :view do
         :author => "Author",
         :isbn => "Isbn",
         :description => "Description",
-        :cover => "",
+        :cover => "Cover",
         :purchase_url => "Purchase Url"
       )
     ])
@@ -31,7 +31,8 @@ RSpec.describe "books/index", :type => :view do
     assert_select "tr>td", :text => "Author".to_s, :count => 2
     assert_select "tr>td", :text => "Isbn".to_s, :count => 2
     assert_select "tr>td", :text => "Description".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => "No Cover".to_s, :count => 1
+    assert_select "tr>td>img", :count => 1
     assert_select "tr>td", :text => "Purchase Url".to_s, :count => 2
   end
 end

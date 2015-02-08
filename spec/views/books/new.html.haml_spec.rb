@@ -26,7 +26,7 @@ RSpec.describe "books/new", :type => :view do
 
       assert_select "input#book_isbn[name=?]", "book[isbn]"
 
-      assert_select "input#book_description[name=?]", "book[description]"
+      assert_select "textarea#book_description[name=?]", "book[description]"
 
       assert_select "input#book_cover[name=?]", "book[cover]"
 

@@ -22,7 +22,11 @@
         %td= book.author
         %td= book.isbn
         %td= book.description
-        %td= book.cover
+        %td
+          - if book.cover
+            = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
+          - else
+            No Cover
         %td= book.purchase_url
         %td= link_to 'Show', book
         %td= link_to 'Edit', edit_book_path(book)
