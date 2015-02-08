@@ -1,7 +1,8 @@
-%h1 Editing book
-
-= render 'form'
-
-= link_to 'Show', @book
-\|
-= link_to 'Back', books_path
+.space
+  .container
+    .row
+      .col-sm-8
+        %h1 Editing Book: #{@book.title}
+        = render 'form'
+        = link_to 'Show', @book, class: 'btn'
+        = link_to 'Back', books_path, class: 'btn'

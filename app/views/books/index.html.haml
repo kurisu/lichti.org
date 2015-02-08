@@ -1,37 +1,40 @@
-%h1 Listing books
+.space
+  .container
+    .row
+      .col-sm-12
+        %h1 Books
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Subtitle
-      %th Author
-      %th Isbn
-      %th Description
-      %th Cover
-      %th Purchase url
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @books.each do |book|
-      %tr
-        %td= book.title
-        %td= book.subtitle
-        %td= book.author
-        %td= book.isbn
-        %td= book.description
-        %td
-          - if book.cover
-            = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
-          - else
-            No Cover
-        %td= book.purchase_url
-        %td= link_to 'Show', book
-        %td= link_to 'Edit', edit_book_path(book)
-        %td= link_to 'Destroy', book, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %table.table
+          %thead
+            %tr
+              %th Title
+              %th Subtitle
+              %th Author
+              %th Isbn
+              %th Description
+              %th Cover
+              %th Purchase url
+              %th
 
-%br
+          %tbody
+            - @books.each do |book|
+              %tr
+                %td= link_to book.title, book
+                %td= book.subtitle
+                %td= book.author
+                %td= book.isbn
+                %td= book.description
+                %td
+                  - if book.cover
+                    = image_tag url_for(:controller => "books", :action => "cover", :id => book.id)
+                  - else
+                    No Cover
+                %td= book.purchase_url
+                %td
+                  .btn-group
+                    = link_to 'Edit', edit_book_path(book), class: %w'btn btn-small'
+                    = link_to 'Destroy', book, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w'btn btn-small'
 
-= link_to 'New Book', new_book_path
+        %br
+
+        = link_to 'New Book', new_book_path, class: 'btn'

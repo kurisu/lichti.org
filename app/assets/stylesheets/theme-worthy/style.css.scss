@@ -72,6 +72,9 @@ a {
 a:hover {
 	color: #339BEB;
 }
+a:visited {
+  color: #5599aa;
+}
 a:focus,
 a:active {
 	outline: none;
@@ -312,6 +315,15 @@ blockquote {
 	-ms-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
+    background-color: #dddddd;
+}
+.btn-small {
+  min-width: 20px;
+}
+.btn:hover {
+  color: #ffffff;
+  background-color: #339BEB;
+  border-color: #339BEB;
 }
 .btn-default {
 	color: #55acee;
