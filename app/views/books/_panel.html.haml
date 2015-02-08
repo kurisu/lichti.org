@@ -26,9 +26,12 @@
         = @book.isbn
     %tr
       %th
-        Purchase URL:
+        Purchase:
       %td
-        = @book.purchase_url
+        - if @book.purchase_url && !@book.purchase_url.empty?
+          = link_to 'Purchase', @book.purchase_url, target: '_blank', class: %w'btn btn-primary'
+        - else
+          = link_to 'Purchase', amazon_url_for(@book), target: '_blank', class: %w'btn btn-primary'
     %tr
       %th
         Description:
