@@ -82,6 +82,9 @@ a:active {
 .large {
 	font-size: 18px;
 }
+img.tile_thumb {
+  height: 200px !important;
+}
 img {
 	display: block;
 	max-width: 100%;
@@ -315,7 +318,7 @@ blockquote {
 	-ms-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-    background-color: #dddddd;
+    background-color: #999999;
 }
 .btn-small {
   min-width: 20px;

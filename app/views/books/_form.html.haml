@@ -29,7 +29,7 @@
     - if @book.cover && !@book.cover.empty?
       %br
       Current cover image:
-      = image_tag url_for(:controller => "books", :action => "cover", :id => @book.id)
+      = image_tag url_for(:controller => "books", :action => "cover", :id => @book.id), class: 'tile_thumb'
     Choose a new cover.  Note: Cover image must be in the PNG format.
     = f.file_field :cover, class: 'form-control'
   .actions.form-group
