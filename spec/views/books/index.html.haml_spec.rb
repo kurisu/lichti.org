@@ -37,6 +37,6 @@ RSpec.describe "books/index", :type => :view do
     assert_select "tr>td", :text => "Description".to_s, :count => 4
     assert_select "tr>td", :text => "No Cover".to_s, :count => 1
     assert_select "tr>td>img", :count => 1
-    assert_select "tr>td>a", :count => 4
+    assert_select "tr>td>a", :count => 8
   end
 end
