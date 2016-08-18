@@ -78,6 +78,5 @@ group :test do
   gem 'database_cleaner'
 end
 
-# Force Heroku to use Ruby 2.2.0
-ruby "2.2.0"
-
+# Force Heroku to use Ruby 2.3.0
+ruby "2.3.0"
